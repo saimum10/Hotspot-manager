@@ -1,0 +1,18 @@
+Package: hotspot-manager-gui
+Version: 2.0.0
+Section: net
+Priority: optional
+Architecture: all
+Depends: python3 (>= 3.8), python3-pyqt5, python3-pyqt5.qtsvg, pkexec, polkitd, sudo, network-manager, iw
+Maintainer: Saimum <saimum@example.com>
+Description: Native GUI WiFi Hotspot Manager for Debian
+ Manage one or more WiFi hotspots directly from a native desktop
+ application — no browser, no terminal, no localhost required.
+ .
+ Features: multi-adapter network creation, connected device
+ management with whitelist/blacklist, scheduled auto on/off and
+ idle timeout, QR code sharing, boot-time persistence, and a
+ clean Material 3 inspired interface with dark mode support.
+ .
+ hostapd, dnsmasq, iptables and qrencode are installed on demand
+ from the app's Setup page — not automatically at install time.

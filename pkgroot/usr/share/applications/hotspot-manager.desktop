@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Hotspot Manager
+GenericName=WiFi Hotspot Manager
+Comment=Manage WiFi Hotspot — Saimum | Debian
+Exec=hotspot-manager
+Icon=hotspot-manager
+Terminal=false
+Categories=Network;System;
+Keywords=hotspot;wifi;wireless;network;access point;
+StartupNotify=true

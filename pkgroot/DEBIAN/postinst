@@ -1,0 +1,35 @@
+#!/bin/bash
+set -e
+
+mkdir -p /etc/hotspot-manager
+chmod 755 /etc/hotspot-manager
+
+if [ ! -f /etc/hotspot-manager/networks.json ]; then
+    echo '[]' > /etc/hotspot-manager/networks.json
+fi
+
+if [ ! -f /etc/hotspot-manager/settings.json ]; then
+    cat > /etc/hotspot-manager/settings.json <<'EOF'
+{
+  "password_off": false,
+  "whitelist_enabled": false,
+  "block_sleep": false,
+  "dark_mode": true
+}
+EOF
+fi
+
+chmod 644 /etc/hotspot-manager/networks.json /etc/hotspot-manager/settings.json 2>/dev/null || true
+
+chmod 755 /usr/bin/hotspot-manager
+chmod 755 /usr/lib/hotspot-manager/main.py
+chmod 755 /usr/lib/hotspot-manager/cli.py
+
+if command -v update-desktop-database >/dev/null 2>&1; then
+    update-desktop-database -q /usr/share/applications || true
+fi
+if command -v gtk-update-icon-cache >/dev/null 2>&1; then
+    gtk-update-icon-cache -q -t /usr/share/icons/hicolor 2>/dev/null || true
+fi
+
+exit 0
